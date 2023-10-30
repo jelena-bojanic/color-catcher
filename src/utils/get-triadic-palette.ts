@@ -3,7 +3,7 @@ import { rgbToHSL } from "./rgb-to-hsl";
 import { hslToRgb } from "./hsl-to-rgb";
 import { rgbToHex } from "./rgb-to-hex";
 
-export function getTriadicPalette({ color }: { color: colorRGB }): {
+export function getTriadicPalette(color: colorRGB): {
   palette: Palette;
 } {
   const shift = 120;

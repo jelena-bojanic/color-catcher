@@ -3,7 +3,7 @@ import { rgbToHSL } from "./rgb-to-hsl";
 import { rgbToHex } from "./rgb-to-hex";
 import { hslToRgb } from "./hsl-to-rgb";
 
-export function getTetradicPalette({ color }: { color: colorRGB }): {
+export function getTetradicPalette(color: colorRGB): {
   palette: Palette;
 } {
   const colorHSL = rgbToHSL(color);

@@ -3,13 +3,7 @@ import { rgbToHex } from "./rgb-to-hex";
 import { rgbToHSL } from "./rgb-to-hsl";
 import { hslToRgb } from "./hsl-to-rgb";
 
-export function getMonochormaticPalette({
-  color,
-  count,
-}: {
-  color: colorRGB;
-  count: number;
-}): { palette: Palette } {
+export function getMonochormaticPalette(color: colorRGB): { palette: Palette } {
   const shift = 33;
 
   const monochormaticPalette = [{ rgb: color, hex: rgbToHex({ color }) }];

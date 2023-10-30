@@ -6,7 +6,7 @@ import { hslToRgb } from "./hsl-to-rgb";
 export function getComplementaryPalette(color: colorRGB): {
   palette: Palette;
 } {
-  console.log({ color });
+
   const colorHSL = rgbToHSL(color);
   const complementaryHSL = { ...colorHSL };
 
