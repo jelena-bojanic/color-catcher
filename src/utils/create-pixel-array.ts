@@ -17,9 +17,6 @@ export function createPixelArray({
       continue;
     }
 
-    if (r >= 200 && g >= 200 && b >= 200) {
-      continue;
-    }
     pixelArray.push({ r, g, b });
   }
   return pixelArray;

@@ -7,6 +7,7 @@ export function compressImage({
 }: CompressImageProps): Promise<CanvasProperties> {
   return new Promise((resolve, reject) => {
     const img = new Image();
+    img.style.background = "transparent";
     img.crossOrigin = `Anonymous`;
 
     img.onload = () => {
