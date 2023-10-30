@@ -1,0 +1,6 @@
+node_modules/
+dist/
+lib/
+/lib-esm
+_bundles
+tsc/
