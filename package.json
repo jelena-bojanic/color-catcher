@@ -1,0 +1,44 @@
+{
+  "type": "module",
+  "name": "color-catcher",
+  "version": "1.0.0",
+  "description": "master",
+  "main": "dist/main.mjs",
+  "module": "dist/main.mjs",
+  "scripts": {
+    "test": "npm run test",
+    "build": "rimraf dist && tsc && rollup -c rollup.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jelena-bojanic/color-catcher.git"
+  },
+  "keywords": [
+    "color",
+    "extract",
+    "colors",
+    "photo-analyisis"
+  ],
+  "author": "Jelena Bojanic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jelena-bojanic/color-catcher/issues"
+  },
+  "types": "dist/index.d.ts",
+  "homepage": "https://github.com/jelena-bojanic/color-catcher#readme",
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@types/color-diff": "^1.2.3",
+    "@types/node": "^20.8.3",
+    "color-diff": "^1.4.0",
+    "rimraf": "^5.0.5",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "rollup": "^2.79.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "ts-loader": "^9.5.0"
+  }
+}
