@@ -1,4 +1,4 @@
-import { IMG_MAX_HEIGHT, IMG_MAX_WIDTH, baseBlurFactor } from ".././constants";
+import { PIXELS } from ".././constants";
 import { CanvasProperties, CompressImageProps } from ".././types";
 
 export function compressImage({
@@ -13,25 +13,24 @@ export function compressImage({
     img.onload = () => {
       const canvas = document.createElement("canvas");
 
-      let newWidth = img.width;
-      let newHeight = img.height;
-
-      // Calculating new dimensions while maintaining aspect ratio
-      if (img.width > IMG_MAX_WIDTH) {
-        newWidth = IMG_MAX_WIDTH;
-        newHeight = (img.height * IMG_MAX_WIDTH) / img.width;
-      } else if (img.height > IMG_MAX_HEIGHT) {
-        newHeight = IMG_MAX_HEIGHT;
-        newWidth = (img.width * IMG_MAX_HEIGHT) / img.height;
-      }
+      const currentPixels = img.width * img.height;
+      const newWidth =
+        (currentPixels < PIXELS
+          ? img.width
+          : Math.round(img.width * Math.sqrt(PIXELS / currentPixels))) / 2;
+      const newHeight =
+        (currentPixels < PIXELS
+          ? img.height
+          : Math.round(img.height * Math.sqrt(PIXELS / currentPixels))) / 2;
 
       canvas.width = newWidth;
       canvas.height = newHeight;
 
       const canvasContext = canvas.getContext("2d");
       if (canvasContext) {
-        canvasContext.filter = `blur(${baseBlurFactor + blurFactor}px)`;
+        canvasContext.filter = `blur(${blurFactor}px)`;
         canvasContext.drawImage(img, 0, 0, newWidth, newHeight);
+
         resolve({
           canvasContext: canvasContext,
           height: canvas.height,
