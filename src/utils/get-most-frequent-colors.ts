@@ -1,3 +1,4 @@
+import { errorCodes } from "src/constants";
 import { MostFrequentColorsProps } from "../types";
 import { compressImage } from "./compress-image";
 import { extractFrequentColors } from "./extract-frequent-colors";
@@ -9,9 +10,15 @@ export async function getMostFrequentColors({
   imageURL,
   n = 1,
   blurFactor = 1,
-}: //ignore white todo
-MostFrequentColorsProps) {
+}: MostFrequentColorsProps) {
   try {
+    if (n <= 0) {
+      throw `n ${errorCodes.nonZeroMessage}.`;
+    }
+    if (blurFactor < 0) {
+      throw `blurFactor ${errorCodes.zeroOrPositiveMessage}`;
+    }
+
     const { canvasContext, height, width } = await compressImage({
       imageURL: imageURL,
       blurFactor,
@@ -22,19 +29,13 @@ MostFrequentColorsProps) {
       height,
     });
 
-    console.log("most frequent before slice", { mostFrequentColors });
-
     if (n < mostFrequentColors.length) {
-      return {
-        mostFrequentColors: mostFrequentColors.slice(0, n),
-      };
+      return mostFrequentColors.slice(0, n);
     }
 
-    return {
-      mostFrequentColors,
-    };
+    return mostFrequentColors;
   } catch (e) {
-    console.log("exception occured: ", e);
-    return "error";
+    console.log("Exception occured extracting colors: ", e);
+    return { error: e };
   }
 }
