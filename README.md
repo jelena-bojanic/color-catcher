@@ -27,3 +27,7 @@ const imageSrc = require('./assets');
       blurFactor: 0,
     })
 ```
+
+
+![image](https://github.com/jelena-bojanic/color-catcher/assets/56951237/f1853ebb-547d-4059-a947-8be89b25f838)
+
