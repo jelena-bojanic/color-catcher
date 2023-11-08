@@ -7,7 +7,7 @@ As input paramters it accepts:
 <br/>
 <b>n</b> - number representing first n most frequent colors from the image 
 <br/>
-<b>blurFactor</b> -  how much you want to blur the image. The more image is blurred the less precised function is. (optional)
+<b>blurFactor</b> -  how much you want to blur the image. The more image is blurred the less precise function is. (optional)
 
 <h2>Install</h2>
 
