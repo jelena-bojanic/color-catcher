@@ -1,11 +1,11 @@
 import { ColorCategories, ColorGroup } from "./types";
 
-export const IMG_MAX_HEIGHT = 300;
-export const IMG_MAX_WIDTH = 300;
-export const IMG_QUALITY_FACTOR = 0.5;
-export const baseBlurFactor = 0;
+export const IMG_MAX_HEIGHT = 250;
+export const IMG_MAX_WIDTH = 250;
+export const PIXELS = 64000;
+export const IMG_QUALITY_FACTOR = 0.3;
 
-export const colorGroups: ColorGroup[] = [
+export const COLORS: ColorGroup[] = [
   {
     name: ColorCategories.red,
     start: { h: 343 },
@@ -43,3 +43,10 @@ export const colorGroups: ColorGroup[] = [
     end: { h: 342 },
   },
 ];
+
+export const errorCodes = {
+  nonZeroMessage: "should be a number larger than zero",
+  zeroOrPositiveMessage: "should be a number equal or larger to zero",
+  invalidRGB:
+    "should have r, g and b properties and their values should be numbers from 0 to 255.",
+};

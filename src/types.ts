@@ -57,3 +57,5 @@ export type Palette = ColorResult[];
 export type colorRGB = { r: number; b: number; g: number };
 export type colorLAB = { l: number; a: number; b: number };
 export type colorHSL = { h: number; s: number; l: number };
+
+export type Error = { error: string };
